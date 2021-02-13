@@ -1,8 +1,11 @@
-       <!-- script to run when ORDER button is clicked -->
-       $("input[value='Order']").click(buttonClicked);
+<!-- Author: Haley Welliver -->
+<!-- Cheesecake JS -->
 
-       <!-- script to run when a MONTH in the dropdown is clicked -->
-       $("a").click(monthClicked);
+<!-- script to run when ORDER button is clicked -->
+  $("input[value='Order']").click(buttonClicked);
+
+<!-- script to run when a MONTH in the dropdown is clicked -->
+  $("a").click(monthClicked);
 
        <!-- function to run when ORDER button is clicked -->
        function buttonClicked(){
@@ -33,7 +36,7 @@
            }
        }
 
-       <!-- function to run when a MONTH in the dropdown is clicked -->
-       function monthClicked(){
-           $(".dropdownButton:first-child").html($(this).text());
-       }
+<!-- function to run when a MONTH in the dropdown is clicked -->
+  function monthClicked(){
+      $(".dropdownButton:first-child").html($(this).text());
+  }
