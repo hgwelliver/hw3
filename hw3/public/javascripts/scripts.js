@@ -25,7 +25,7 @@
                $("table[id='table1']").hide();
 	       $("form").hide();
                $("textarea").hide();
-               $("input[value='Order']").hide();
+               $("input[value='Order']").hide(); 
 
                <!-- adds thank you message and order details -->
 	       $("#lbl1").replaceWith("<h3>Thank you! Your order has been placed.<\h3>");
@@ -39,4 +39,23 @@
 <!-- function to run when a MONTH in the dropdown is clicked -->
   function monthClicked(){
       $(".dropdownButton:first-child").html($(this).text());
+
+      //issues a POST to grab JSON array data
+      $.post("/orders", {}, function(data, status){
+
+           //loops through JSON array data
+           var i = 0;
+           while(i<3){
+              //changed li IDs in index.html to be "li0" "li1" "li2" so I can access them with loop
+              var ID = "li" + i;
+              var quantity = data[i].quantity;
+              var topping = data[i].topping;
+
+              //converts and parses JSON data to display in li blocks
+              converted = JSON.stringify(quantity + " " + topping);
+              parse = JSON.parse(converted);
+              document.getElementById(ID).innerHTML = parse;
+              i++;
+           }
+      });  
   }
