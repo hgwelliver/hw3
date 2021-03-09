@@ -41,8 +41,8 @@
       $(".dropdownButton:first-child").html($(this).text());
 
       //issues a POST to grab JSON array data
-      $.post("/orders", {}, function(data, status){
-
+      $.post("/orders", {month:$(this).text()}, function(data){
+           console.log("got here");
            //loops through JSON array data
            var i = 0;
            while(i<3){
@@ -58,4 +58,4 @@
               i++;
            }
       });  
-  }
+  } 
